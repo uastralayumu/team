@@ -67,7 +67,7 @@ void object::update(int timer)
 	{
 
 		underpositionx[i] += 3;
-		if (underpositionx[i] > SCREEN_W + 128)
+		if (underpositionx[i] > SCREEN_W + 128 && (overpositionx[undernumber - 1] > -16 && i + undernumber == undernumber || i != 0 && underpositionx[i - 1] > 0))
 		{
 			underpositionx[i] = -128;
 			/*centerchange[i + 9] = rand() % 2;*/
