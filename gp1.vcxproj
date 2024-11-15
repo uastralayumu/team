@@ -183,6 +183,7 @@ attrib +h SourceCode\gp1.log</Command>
     <ClInclude Include="SourceCode\common.h" />
     <ClInclude Include="SourceCode\object.h" />
     <ClInclude Include="SourceCode\player.h" />
+    <ClInclude Include="SourceCode\result.h" />
     <ClInclude Include="SourceCode\scene_game.h" />
     <ClInclude Include="SourceCode\stage.h" />
     <ClInclude Include="SourceCode\title.h" />
@@ -207,6 +208,7 @@ attrib +h SourceCode\gp1.log</Command>
     <ClCompile Include="SourceCode\main.cpp" />
     <ClCompile Include="SourceCode\object.cpp" />
     <ClCompile Include="SourceCode\player.cpp" />
+    <ClCompile Include="SourceCode\result.cpp" />
     <ClCompile Include="SourceCode\scene_game.cpp" />
     <ClCompile Include="SourceCode\stage.cpp" />
     <ClCompile Include="SourceCode\title.cpp" />
