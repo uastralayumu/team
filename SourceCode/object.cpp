@@ -15,19 +15,19 @@ void object::init()
 	{
 
 		overpositionx[i] = -128 * 1.5f;
-		overpositiony[i] = 0;
+		overpositiony[i] = 100;
 		overchange[i] = rand() % 2;
 	}
 	for (int i = 0; i < centernumber; i++)
 	{
 		centerpositionx[i] = SCREEN_W;
-		centerpositiony[i] = 128;
+		centerpositiony[i] = 278;
 		centerchange[i] = rand() % 2;
 	}
 	for (int i = 0; i < undernumber; i++)
 	{
 		underpositionx[i] = -128;
-		underpositiony[i] = 256;
+		underpositiony[i] = 460;
 		underchange[i] = rand() % 2;
 	}
 
