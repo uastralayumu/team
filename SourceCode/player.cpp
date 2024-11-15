@@ -24,7 +24,7 @@ void player::update()
 	case 0:
 		state++;
 	case 1:
-		if (STATE(0) & PAD_LEFT && playerpositionx > 0)
+		if (STATE(0) & PAD_LEFT && playerpositionx > 500)
 		{
 			playerpositionx -= 5;
 
