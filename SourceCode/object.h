@@ -13,7 +13,7 @@ private:
 	int centercount;
 	int undercount;
 	const int overnumber = 7;
-	const int centernumber = 7;
+	const int centernumber = 6;
 	const int undernumber = 9;
 	float overpositionx[9];
 	float overpositiony[9];
