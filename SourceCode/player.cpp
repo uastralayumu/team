@@ -8,8 +8,8 @@ Sprite* playercontroller;
 void player::init()
 {
 	state = 0;
-	playerpositionx = 600;
-	playerpositiony = 452;
+	playerpositionx = SCREEN_W / 2 - 50;
+	playerpositiony = SCREEN_H - 300;
 	playerscalex = 2.5;
 	playerscaley = 2.5f;
 	playercontroller = sprite_load(L"./Data/Images/kusi.png");
@@ -43,7 +43,7 @@ void player::update()
 		playerpositiony -= 15;
 		if (playerpositiony < -500)
 		{
-			playerpositiony = 452;
+			playerpositiony = SCREEN_H - 300;
 			state--;
 		}
 		break;
