@@ -4,114 +4,141 @@
 Sprite* tamago;
 Sprite* chikuwa;
 Sprite* octopus;
+Sprite* konjac;
 
 void object::init()
 {
-	for (int i = 0; i < 6; i++)
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < overnumber; i++)
 	{
-		
-		if (i % 3 == 0)
-		{
-			positionx[i] = 0;
-			positiony[i] = 0;
-		}
-		if (i % 3 == 1)
-		{
-			positionx[i] = SCREEN_W;
-			positiony[i] = 128;
-		}
-		if (i % 3 == 2)
-		{
-			positionx[i] = 0;
-			positiony[i] = 256;
-		}
+
+		overpositionx[i] = -128;
+		overpositiony[i] = 0;
+		overchange[i] = rand() % 2;
 	}
+	for (int i = 0; i < centernumber; i++)
+	{
+		centerpositionx[i] = SCREEN_W;
+		centerpositiony[i] = 128;
+		centerchange[i] = rand() % 2;
+	}
+	for (int i = 0; i < undernumber; i++)
+	{
+		underpositionx[i] = -128;
+		underpositiony[i] = 256;
+		underchange[i] = rand() % 2;
+	}
+
 	tamago = sprite_load(L"./Data/Images/tamago.png");
 	octopus = sprite_load(L"./Data/Images/octopus.png");
 	chikuwa = sprite_load(L"./Data/Images/chikuwa.png");
+	konjac = sprite_load(L"./Data/Images/konjac.png");
 }
 
 void object::update(int timer)
 {
-	
-	count = ((timer / 1) + 1) * 3;
-	if (count >= 6)
+
+	overcount = timer + 1;
+	if (overcount >= overnumber)
 	{
-		count = 6;
+		overcount = overnumber;
+	}
+	centercount = timer + 1;
+	if (centercount >= centernumber)
+	{
+		centercount = centernumber;
+	}
+	undercount = timer + 1;
+	if (undercount >= undernumber)
+	{
+		undercount = undernumber;
 	}
 
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < overcount; i++)
 	{
-		if (i % 3 == 0||i % 3 == 2)
+		overpositionx[i] += 4;
+		if (overpositionx[i] > SCREEN_W + 128 && (overpositionx[overnumber - 1] > 92 && i + overnumber == overnumber || i != 0 && overpositionx[i - 1] > 92))
 		{
-			if (i % 3 == 0)
-			{
-				positionx[i] += 5;
-			}
-			if (i % 3 == 2)
-			{
-				positionx[i] += 4;
-			}
-			if (positionx[i] > SCREEN_W + 128)
-			{
-				positionx[i] = 0;
-			}
+			overpositionx[i] = -128;
+			overchange[i] = rand() % 2;
 		}
-		if (i % 3 == 1)
+	}
+	for (int i = 0; i < undercount; i++)
+	{
+
+		underpositionx[i] += 3;
+		if (underpositionx[i] > SCREEN_W + 128)
 		{
-			positionx[i] -= 5;
-			if (positionx[i] < 0)
-			{
-				positionx[i] = SCREEN_W;
-			}
+			underpositionx[i] = -128;
+			/*centerchange[i + 9] = rand() % 2;*/
+		}
+	}
+	for (int i = 0; i < centercount; i++)
+	{
+		centerpositionx[i] -= 4;
+		if (centerpositionx[i] < -128)
+		{
+			centerpositionx[i] = SCREEN_W;
+			/*underchange[i + 18] = rand() % 2;*/
 		}
 	}
 }
 
 void object::render()
 {
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < overcount; i++)
 	{
-		if (i % 3 == 0)
+		if (overchange[i] == 0)
 		{
 			sprite_render(
 				octopus,
-				positionx[i], positiony[i],
+				overpositionx[i], overpositiony[i],
 				1, 1,
 				0, 0,
 				128, 128,
 				0, 0,
-				ToRadian(90)
+				ToRadian(0)
 			);
 		}
-		if (i % 3 == 1)
+		else
 		{
 			sprite_render(
-				tamago,
-				positionx[i], positiony[i] + 128,
+				konjac,
+				overpositionx[i], overpositiony[i],
 				1, 1,
 				0, 0,
 				128, 128,
 				0, 0,
-				ToRadian(270)
-			);
-		}
-		if (i % 3 == 2)
-		{
-			sprite_render(
-				chikuwa,
-				positionx[i], positiony[i],
-				1, 1,
-				0, 0,
-				128, 128,
-				0, 0,
-				ToRadian(90)
+				ToRadian(0)
 			);
 		}
 	}
-}
+	for (int i = 0; i < centercount; i++)
+	{
 
-void object::render_delete()
-{
-	safe_delete(tamago);
+		sprite_render(
+			tamago,
+			centerpositionx[i], centerpositiony[i] + 128,
+			1, 1,
+			0, 0,
+			128, 128,
+			0, 0,
+			ToRadian(270)
+		);
+
+	}
+	for (int i = 0; i < undercount; i++)
+	{
+
+		sprite_render(
+			chikuwa,
+			underpositionx[i], underpositiony[i],
+			1, 1,
+			0, 0,
+			128, 128,
+			0, 0,
+			ToRadian(0)
+		);
+
+	}
 }
