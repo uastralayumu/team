@@ -12,7 +12,7 @@ void object::init()
 	for (int i = 0; i < overnumber; i++)
 	{
 
-		overpositionx[i] = -128;
+		overpositionx[i] = -128 * 1.5f;
 		overpositiony[i] = 0;
 		overchange[i] = rand() % 2;
 	}
@@ -57,9 +57,9 @@ void object::update(int timer)
 	for (int i = 0; i < overcount; i++)
 	{
 		overpositionx[i] += 4;
-		if (overpositionx[i] > SCREEN_W + 128 && (overpositionx[overnumber - 1] > 92 && i + overnumber == overnumber || i != 0 && overpositionx[i - 1] > 92))
+		if (overpositionx[i] > SCREEN_W + 128 && (overpositionx[overnumber - 1] > 96 && i + overnumber == overnumber || i != 0 && overpositionx[i - 1] > 96))
 		{
-			overpositionx[i] = -128;
+			overpositionx[i] = -128 * 1.5f;
 			overchange[i] = rand() % 2;
 		}
 	}
@@ -76,7 +76,7 @@ void object::update(int timer)
 	for (int i = 0; i < centercount; i++)
 	{
 		centerpositionx[i] -= 4;
-		if (centerpositionx[i] < -128 && (centerpositionx[centernumber - 1] < -96 + SCREEN_W && i + centernumber == centernumber || i != 0 && centerpositionx[i - 1] < -96 + SCREEN_W))
+		if (centerpositionx[i] < -128 && (centerpositionx[centernumber - 1] < SCREEN_W - 192 && i + centernumber == centernumber || i != 0 && centerpositionx[i - 1] < SCREEN_W - 192))
 		{
 			centerpositionx[i] = SCREEN_W;
 			/*underchange[i + 18] = rand() % 2;*/
@@ -93,7 +93,7 @@ void object::render()
 			sprite_render(
 				octopus,
 				overpositionx[i], overpositiony[i],
-				1, 1,
+				1.5f, 1.5f,
 				0, 0,
 				128, 128,
 				0, 0,
@@ -105,7 +105,7 @@ void object::render()
 			sprite_render(
 				konjac,
 				overpositionx[i], overpositiony[i],
-				1, 1,
+				1.5, 1.5,
 				0, 0,
 				128, 128,
 				0, 0,
