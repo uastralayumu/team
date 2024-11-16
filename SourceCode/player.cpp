@@ -51,7 +51,7 @@ void player::update()
 
 }
 
-void player::render(int timer)
+void player::render()
 {
 	sprite_render(
 		playercontroller,
