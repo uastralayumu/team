@@ -45,12 +45,12 @@ void object::init()
 void object::update(int timer)
 {
 	odentimer1 = timer;
-	if (odentimer1 > 15)
+	if (odentimer1 > 20)
 	{
-		odentimer2 = timer - 15;
-		if (odentimer2 > 15)
+		odentimer2 = timer - 20;
+		if (odentimer2 > 20)
 		{
-			odentimer3 = timer - 30;
+			odentimer3 = timer - 40;
 		}
 	}
 	overcount = timer + 1;
@@ -184,9 +184,9 @@ void object::render()
 	}
 	sprite_render(
 		konjac,
-		400 - odentimer1 * 5.5f, 0,
+		400 - odentimer1 * 3.7f, 0,
 		0.75, 0.75,
-		0,0 + odentimer1 * 7,
+		0,0 + odentimer1 * 5.2,
 		128,128,
 		0,0,
 		ToRadian(90)
@@ -194,9 +194,9 @@ void object::render()
 
 	sprite_render(
 		daikon,
-		320 - odentimer2 * 5.5f, 0,
+		320 - odentimer2 * 3.5f, 4,
 		0.75,0.75,
-		0,0 + odentimer2 * 8,
+		0,0 + odentimer2 * 6,
 		128,128,
 		0,0,
 		ToRadian(90)
@@ -204,9 +204,9 @@ void object::render()
 
 	sprite_render(
 		chikuwa,
-		224 - odentimer3 * 2.75f, 0,
+		224 - odentimer3 * 1.75f, 0,
 		0.75, 1,
-		0, 48 + odentimer3 * 3,
+		0, 48 + odentimer3 * 2,
 		128, 96,
 		0, 0,
 		ToRadian(90)
