@@ -8,7 +8,7 @@ public:
 	void render();
 	void render_delete();
 private:
-	
+	int odentimer1,odentimer2,odentimer3;
 	int overcount;
 	int centercount;
 	int undercount;

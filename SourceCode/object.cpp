@@ -10,6 +10,9 @@ Sprite* hanpen;
 
 void object::init()
 {
+	odentimer1 = 0;
+	odentimer2 = 0;
+	odentimer3 = 0;
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < overnumber; i++)
 	{
@@ -41,7 +44,15 @@ void object::init()
 
 void object::update(int timer)
 {
-
+	odentimer1 = timer;
+	if (odentimer1 > 15)
+	{
+		odentimer2 = timer - 15;
+		if (odentimer2 > 15)
+		{
+			odentimer3 = timer - 30;
+		}
+	}
 	overcount = timer + 1;
 	if (overcount >= overnumber)
 	{
@@ -171,4 +182,33 @@ void object::render()
 			);
 		}
 	}
+	sprite_render(
+		konjac,
+		400 - odentimer1 * 5.5f, 0,
+		0.75, 0.75,
+		0,0 + odentimer1 * 7,
+		128,128,
+		0,0,
+		ToRadian(90)
+	);
+
+	sprite_render(
+		daikon,
+		320 - odentimer2 * 5.5f, 0,
+		0.75,0.75,
+		0,0 + odentimer2 * 8,
+		128,128,
+		0,0,
+		ToRadian(90)
+	);
+
+	sprite_render(
+		chikuwa,
+		224 - odentimer3 * 2.75f, 0,
+		0.75, 1,
+		0, 48 + odentimer3 * 3,
+		128, 96,
+		0, 0,
+		ToRadian(90)
+	);
 }
