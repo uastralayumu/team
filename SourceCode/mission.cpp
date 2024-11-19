@@ -32,12 +32,12 @@ void mission::update()
 
 void mission::render()
 {
-	sprite_render(kusi2, 70, 450, 2, 2, 56, 20, 64, 128);
+	sprite_render(kusi2, 70, 800, 2, 2, 56, 20, 64, 128);
 	if (obj1 == 0)
 	{
 		sprite_render(
 			hanpen2,
-			90, 450,
+			90, 800,
 			0.7, 0.7,
 			0, 0,
 			128, 128,
@@ -49,7 +49,7 @@ void mission::render()
 	{
 		sprite_render(
 			konjac2,
-			90, 450,
+			90, 800,
 			0.7, 0.7,
 			0, 0,
 			128, 128,
@@ -61,7 +61,7 @@ void mission::render()
 	{
 		sprite_render(
 			tamago2,
-			90, 520,
+			90, 870,
 			0.8, 0.8,
 			0, 0,
 			128, 128,
@@ -73,7 +73,7 @@ void mission::render()
 	{
 		sprite_render(
 			daikon2,
-			90, 520,
+			90, 870,
 			0.7, 0.7,
 			0, 0,
 			128, 128,
@@ -85,7 +85,7 @@ void mission::render()
 	{
 		sprite_render(
 			octopus2,
-			90, 570,
+			90, 920,
 			0.7, 0.7,
 			0, 0,
 			128, 128,
@@ -97,7 +97,7 @@ void mission::render()
 	{
 		sprite_render(
 			chikuwa2,
-			90, 570,
+			90, 920,
 			0.8, 0.8,
 			0, 0,
 			128, 128,
