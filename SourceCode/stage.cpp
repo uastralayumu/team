@@ -1,5 +1,6 @@
 #include "stage.h"
 #include "all.h"
+Sprite* gamescene;
 
 stage::stage()
 {
@@ -13,7 +14,7 @@ stage::~stage()
 
 void stage::init()
 {
-
+	gamescene = sprite_load(L"./Data/Images/gamescene.png");
 }
 
 void stage::update()
@@ -23,5 +24,5 @@ void stage::update()
 
 void stage::render()
 {
-	GameLib::clear(0, 0, 0);
+	sprite_render(gamescene, 0, 0);
 }
