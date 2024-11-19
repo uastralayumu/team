@@ -1,9 +1,9 @@
 #include "player.h"
 #include "all.h"
-
+#include "mission.h"
 Sprite* playercontroller;
 
-
+mission m;
 
 void player::init()
 {
@@ -13,7 +13,7 @@ void player::init()
 	playerscalex = 2.5f;
 	playerscaley = 2.5f;
 	playercontroller = sprite_load(L"./Data/Images/kusi.png");
-	
+	m.init();
 }
 
 
@@ -43,6 +43,7 @@ void player::update()
 		playerpositiony -= 15;
 		if (playerpositiony < -500)
 		{
+			m.update();
 			playerpositiony = SCREEN_H - 400;
 			state--;
 		}
@@ -70,6 +71,8 @@ void player::render()
 			0, 0,
 			ToRadian(90)
 		);
+
+		m.render();
 }
 
 void player::render_delete()

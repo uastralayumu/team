@@ -181,6 +181,7 @@ attrib +h SourceCode\gp1.log</Command>
     <ClInclude Include="GameLib\view_settings.h" />
     <ClInclude Include="SourceCode\all.h" />
     <ClInclude Include="SourceCode\common.h" />
+    <ClInclude Include="SourceCode\mission.h" />
     <ClInclude Include="SourceCode\object.h" />
     <ClInclude Include="SourceCode\player.h" />
     <ClInclude Include="SourceCode\result.h" />
@@ -206,6 +207,7 @@ attrib +h SourceCode\gp1.log</Command>
     <ClCompile Include="GameLib\wnd_proc.cpp" />
     <ClCompile Include="SourceCode\common.cpp" />
     <ClCompile Include="SourceCode\main.cpp" />
+    <ClCompile Include="SourceCode\mission.cpp" />
     <ClCompile Include="SourceCode\object.cpp" />
     <ClCompile Include="SourceCode\player.cpp" />
     <ClCompile Include="SourceCode\result.cpp" />
