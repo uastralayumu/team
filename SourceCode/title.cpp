@@ -15,7 +15,6 @@ title::~title()
 void title::init()
 {
 	title1 = sprite_load(L"./Data/Images/title.png");
-	GameLib::clear(0, 0, 0);
 }
 
 void title::update()
