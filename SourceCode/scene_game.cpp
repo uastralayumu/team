@@ -60,7 +60,6 @@ void game_update(int *state)
         p.render();
         o.render();
         time_limit = game_timer / 60;
-        debug::setString("time_limit:%d ", 60 - time_limit);
         //§ŒÀŽžŠÔ
         if (time_limit >= 60)
         {
