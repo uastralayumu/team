@@ -42,6 +42,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
         
         case 1:
         
+            t.render();
             if (TRG(0) & PAD_START)
             {
                 state++;
