@@ -72,9 +72,9 @@ void object::update(int timer)
 	for (int i = 0; i < overcount; i++)
 	{
 		overpositionx[i] += 4;
-		if (overpositionx[i] > SCREEN_W + 128 && (overpositionx[overnumber - 1] > 96 && i + overnumber == overnumber || i != 0 && overpositionx[i - 1] > 64))
+		if (overpositionx[i] > SCREEN_W + 128 && (overpositionx[overnumber - 1] > 64 && i == 0 || i != 0 && overpositionx[i - 1] > 64))
 		{
-			overpositionx[i] = -128 * 1.5f;
+			overpositionx[i] = -128;
 			overchange[i] = rand() % 2;
 		}
 	}
@@ -211,4 +211,9 @@ void object::render()
 		0, 0,
 		ToRadian(90)
 	);
+}
+
+void object::render_delete()
+{
+	delete chikuwa, daikon, tamago, konjac, hanpen, octopus;
 }
