@@ -7,6 +7,7 @@ player p1;
 object o1;
 stage s1;
 Sprite* osinagakiexplanation;
+Sprite* timerexplanation;
 
 void explanation::init()
 {
@@ -15,6 +16,7 @@ void explanation::init()
 	o1.init();
 	o1.explanationinit();
 	osinagakiexplanation = sprite_load(L"./Data/Images/osinagakiexplanation.png");
+	timerexplanation = sprite_load(L"./Data/Images/timerexplanation.png");
 }
 
 void explanation::update()
@@ -30,7 +32,11 @@ void explanation::render()
 	p1.render();
 	o1.render();
 	sprite_render(
-		osinagakiexplanation,150,700,
+		osinagakiexplanation,
+		150,700,
 		1,1
 		);
+	sprite_render(
+		timerexplanation,
+		40, 30);
 }
