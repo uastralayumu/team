@@ -9,6 +9,7 @@
 //------< ƒCƒ“ƒNƒ‹[ƒh >---------------------------------------------------------
 #include "all.h"
 #include "title.h"
+#include "explanation.h"
 
 //------< namespace >-----------------------------------------------------------
 using namespace GameLib;
@@ -24,6 +25,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
     GameLib::init(L"ƒQ[ƒ€ƒvƒƒOƒ‰ƒ~ƒ“ƒO‡T", SCREEN_W, SCREEN_H, FULLSCREEN);
     int state = 0;
     title t;
+    explanation e;
     using namespace input;
    
 
@@ -46,15 +48,25 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
             if (TRG(0) & PAD_START)
             {
                 state++;
+                e.init();
             }
                 
             break;
         
         case 2:
+            e.update();
+            e.render();
+            if (TRG(0) & PAD_START)
+            {
+                state++;
+            }
+
+            break;
+        case 3:
             // Œ»İ‚ÌƒV[ƒ“‚ğXVE•`‰æ
             game_update(&state);
             break;
-        case 3:
+        case 4:
             //ƒXƒRƒAƒV[ƒ“‚ğXVE•`‰æ
 
 
