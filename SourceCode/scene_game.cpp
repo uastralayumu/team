@@ -12,6 +12,7 @@
 #include"player.h"
 #include"object.h"
 #include "stage.h"
+#include "explanation.h"
 //------< ’è” >----------------------------------------------------------------
 
 //------< •Ï” >----------------------------------------------------------------
@@ -22,7 +23,7 @@ int time_limit = 0;    //§ŒÀŽžŠÔ
 player p;
 object o;
 stage s;
-
+explanation e;
 //--------------------------------------
 //  ‰ŠúÝ’è
 //--------------------------------------
@@ -45,18 +46,24 @@ void game_update(int *state)
     {
     case 0:
         //////// ‰ŠúÝ’è ////////
-        s.init();
-        p.init();
-        o.init();
+        e.init();
         game_state++;
 
     case 1:
         //////// ƒpƒ‰ƒ[ƒ^‚ÌÝ’è ////////
         GameLib::setBlendMode(Blender::BS_ALPHA);
-
         game_state++;
-    
     case 2:
+        e.update();
+        e.render();
+        if (TRG(0) & PAD_START)
+        {
+            game_state++;
+            p.init();
+            o.init();
+        }
+        break;
+    case 3:
         //////// ’ÊíŽž ////////
         s.render();
         p.update();
@@ -76,7 +83,11 @@ void game_update(int *state)
         break;
        
     }
-    game_timer++;
+    if (game_state > 2)
+    {
+        game_timer++;
+    }
+    
     
    
 }

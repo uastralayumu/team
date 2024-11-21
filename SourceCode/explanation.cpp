@@ -6,13 +6,15 @@
 player p1;
 object o1;
 stage s1;
+Sprite* osinagakiexplanation;
 
 void explanation::init()
 {
+	s1.init();
 	p1.init();
 	o1.init();
 	o1.explanationinit();
-	s1.init();
+	osinagakiexplanation = sprite_load(L"./Data/Images/osinagakiexplanation.png");
 }
 
 void explanation::update()
@@ -23,9 +25,12 @@ void explanation::update()
 
 void explanation::render()
 {
-	GameLib::setBlendMode(Blender::BS_ALPHA);
+	
 	s1.render();
 	p1.render();
 	o1.render();
-	
+	sprite_render(
+		osinagakiexplanation,150,700,
+		1,1
+		);
 }
