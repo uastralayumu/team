@@ -7,6 +7,8 @@ public:
 	void update(int timer);
 	void render();
 	void render_delete();
+	//explantion‚Ì‚½‚ß‚Ìinit
+	void explanationinit();
 private:
 	int odentimer1,odentimer2,odentimer3;
 	int overcount;

@@ -16,8 +16,7 @@ void object::init()
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < overnumber; i++)
 	{
-
-		overpositionx[i] = -128 * 1.5f;
+		overpositionx[i] = -128;
 		overpositiony[i] = 100;
 		overchange[i] = rand() % 2;
 	}
@@ -41,6 +40,23 @@ void object::init()
 	daikon = sprite_load(L"./Data/Images/daikon.png");
 	hanpen = sprite_load(L"./Data/Images/hanpen.png");
 }
+
+void object::explanationinit()
+{
+	for (int i = 0; i < overnumber; i++)
+	{
+		overpositionx[i] = (220 * i);
+		centerpositionx[i] = (220 * i);
+	}
+	for (int i = 0; i < undernumber;i++)
+	{
+		underpositionx[i] =(160 * i);
+	}
+	overcount = overnumber;
+	centercount = centernumber;
+	undercount = undernumber;
+}
+
 
 void object::update(int timer)
 {

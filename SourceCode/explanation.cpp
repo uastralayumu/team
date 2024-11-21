@@ -11,6 +11,7 @@ void explanation::init()
 {
 	p1.init();
 	o1.init();
+	o1.explanationinit();
 	s1.init();
 }
 
