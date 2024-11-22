@@ -13,13 +13,14 @@
 #include"object.h"
 #include "stage.h"
 #include "explanation.h"
+#include"hit.h"
 //------< 定数 >----------------------------------------------------------------
 
 //------< 変数 >----------------------------------------------------------------
 int game_state = 0;    // 状態
 int game_timer = 0;    // タイマー
 int time_limit = 0;    //制限時間
-
+hit h;
 player p;
 object o;
 stage s;
@@ -69,6 +70,7 @@ void game_update(int *state)
         p.update();
         o.update(time_limit);
         p.render();
+        h.Update();
         o.render();
         time_limit = game_timer / 60;
         //制限時間

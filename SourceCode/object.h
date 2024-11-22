@@ -9,6 +9,9 @@ public:
 	void render_delete();
 	//explantion‚Ì‚½‚ß‚Ìinit
 	void explanationinit();
+	float GettherX();
+	float GettherY();
+	int GettherO();
 private:
 	int odentimer1,odentimer2,odentimer3;
 	int overcount;

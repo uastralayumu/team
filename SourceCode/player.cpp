@@ -80,3 +80,11 @@ void player::render_delete()
 	safe_delete(playercontroller);
 	
 }
+void player::GettherX()
+{
+	 playerpositionx;
+}
+float player::GettherY()
+{
+	return playerpositiony;
+}
