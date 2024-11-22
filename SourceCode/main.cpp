@@ -9,7 +9,7 @@
 //------< ƒCƒ“ƒNƒ‹[ƒh >---------------------------------------------------------
 #include "all.h"
 #include "title.h"
-
+#include "result.h"
 
 //------< namespace >-----------------------------------------------------------
 using namespace GameLib;
@@ -25,7 +25,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
     GameLib::init(L"ƒQ[ƒ€ƒvƒƒOƒ‰ƒ~ƒ“ƒO‡T", SCREEN_W, SCREEN_H, FULLSCREEN);
     int state = 0;
     title t;
-   
+    result r;
     using namespace input;
 
 
@@ -38,6 +38,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
         case 0:
             game_init();
             t.init();
+            r.init();
             state++;
             break;
            
@@ -58,7 +59,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
         case 3:
             //ƒXƒRƒAƒV[ƒ“‚ğXVE•`‰æ
 
-
+            r.render();
             if (TRG(0) & PAD_START)
             {
                 state = 0;
