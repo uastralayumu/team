@@ -70,8 +70,8 @@ void game_update(int *state)
         p.update();
         o.update(time_limit);
         p.render();
-        h.Update();
         o.render();
+        h.Update();
         time_limit = game_timer / 60;
         //§ŒÀŽžŠÔ
         if (time_limit >= 60)

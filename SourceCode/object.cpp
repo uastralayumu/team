@@ -1,5 +1,6 @@
 #include "all.h"
 #include "object.h"
+#include "hit.h"
 
 Sprite* tamago;
 Sprite* chikuwa;
@@ -232,25 +233,4 @@ void object::render()
 void object::render_delete()
 {
 	delete chikuwa, daikon, tamago, konjac, hanpen, octopus;
-}
-float  object::GettherX()
-{
-	for (int i=0;i<9;i++)
-	{
-		return overpositionx[i];
-	}
-}
-float  object::GettherY()
-{
-	for (int i=0;i<9;i++)
-	{
-		return overpositionx[i];
-	}
-}
-int  object::GettherO()
-{
-	for (int i=0;i<9;i++)
-	{
-		return overchange[i];
-	}
 }

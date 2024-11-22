@@ -7,13 +7,10 @@ public:
 	void update();
 	void render();
 	void render_delete();
-	void GettherX();
-	float GettherY();
-private:
-	int state;
-	
 	float playerpositionx;
 	float playerpositiony;
+private:
+	int state;
 	float playerscalex;
 	float playerscaley;
 };

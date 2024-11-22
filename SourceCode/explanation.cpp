@@ -3,8 +3,9 @@
 #include "player.h"
 #include "object.h"
 #include "stage.h"
-player p1;
-object o1;
+
+extern player p;
+extern object o;
 stage s1;
 Sprite* osinagakiexplanation;
 Sprite* timerexplanation;
@@ -12,9 +13,9 @@ Sprite* timerexplanation;
 void explanation::init()
 {
 	s1.init();
-	p1.init();
-	o1.init();
-	o1.explanationinit();
+	p.init();
+	o.init();
+	o.explanationinit();
 	osinagakiexplanation = sprite_load(L"./Data/Images/osinagakiexplanation.png");
 	timerexplanation = sprite_load(L"./Data/Images/timerexplanation.png");
 }
@@ -29,8 +30,8 @@ void explanation::render()
 {
 	
 	s1.render();
-	p1.render();
-	o1.render();
+	p.render();
+	o.render();
 	sprite_render(
 		osinagakiexplanation,
 		150,700,

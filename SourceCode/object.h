@@ -9,17 +9,7 @@ public:
 	void render_delete();
 	//explantion‚Ì‚½‚ß‚Ìinit
 	void explanationinit();
-	float GettherX();
-	float GettherY();
-	int GettherO();
-private:
-	int odentimer1,odentimer2,odentimer3;
-	int overcount;
-	int centercount;
-	int undercount;
-	const int overnumber = 9;
-	const int centernumber = 9;
-	const int undernumber = 13;
+
 	float overpositionx[9];
 	float overpositiony[9];
 	float centerpositionx[9];
@@ -29,4 +19,12 @@ private:
 	int overchange[9];
 	int centerchange[9];
 	int underchange[13];
+private:
+	int odentimer1,odentimer2,odentimer3;
+	int overcount;
+	int centercount;
+	int undercount;
+	const int overnumber = 9;
+	const int centernumber = 9;
+	const int undernumber = 13;
 };

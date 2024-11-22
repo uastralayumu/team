@@ -1,8 +1,8 @@
 #include "player.h"
 #include "all.h"
 #include "mission.h"
+#include "hit.h"
 Sprite* playercontroller;
-
 mission m;
 
 void player::init()
@@ -49,7 +49,6 @@ void player::update()
 		}
 		break;
 	}
-
 }
 
 void player::render()
@@ -80,11 +79,4 @@ void player::render_delete()
 	safe_delete(playercontroller);
 	
 }
-void player::GettherX()
-{
-	 playerpositionx;
-}
-float player::GettherY()
-{
-	return playerpositiony;
-}
+
