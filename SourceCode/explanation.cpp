@@ -6,7 +6,7 @@
 
 extern player p;
 extern object o;
-stage s1;
+extern stage s;
 Sprite* osinagakiexplanation;
 Sprite* timerexplanation;
 Sprite* coment1;
@@ -14,7 +14,7 @@ Sprite* coment2;
 
 void explanation::init()
 {
-	s1.init();
+	s.init();
 	p.init();
 	o.init();
 	o.explanationinit();
@@ -34,7 +34,7 @@ void explanation::update()
 void explanation::render()
 {
 	
-	s1.render();
+	s.render();
 	p.render();
 	o.render();
 	sprite_render(
