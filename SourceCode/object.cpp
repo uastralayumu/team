@@ -89,7 +89,7 @@ void object::update(int timer)
 	for (int i = 0; i < overcount; i++)
 	{
 		overpositionx[i] += 4;
-		if (overpositionx[i] > SCREEN_W + 128 && (overpositionx[overnumber - 1] > 64 && i == 0 || i != 0 && overpositionx[i - 1] > 64))
+		if ((overpositionx[i] > SCREEN_W + 128 || overpositionx[i] > SCREEN_H + 256) && (overpositionx[overnumber - 1] > 64 && i == 0 || i != 0 && overpositionx[i - 1] > 64))
 		{
 			overpositionx[i] = -128;
 			overchange[i] = rand() % 2;
@@ -98,7 +98,7 @@ void object::update(int timer)
 	for (int i = 0; i < undercount; i++)
 	{
 		underpositionx[i] += 3;
-		if (underpositionx[i] > SCREEN_W + 128 && (underpositionx[undernumber - 1] > 32 && i + undernumber == undernumber || i != 0 && underpositionx[i - 1] > 32))
+		if (underpositionx[i] > SCREEN_W + 128  && (underpositionx[undernumber - 1] > 32 && i + undernumber == undernumber || i != 0 && underpositionx[i - 1] > 32))
 		{
 			underpositionx[i] = -128;
 			underchange[i] = rand() % 2;
