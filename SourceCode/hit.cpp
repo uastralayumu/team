@@ -40,6 +40,11 @@ void hit::Update()
             ToRadian(0),            //äpìx
             0.0F, 0.0F, 1.0F, 0.5F); //êF
         if (hitCheck(p.playerpositionx + 10, p.playerpositiony, 32, o.overpositionx[i] + 64,  o.overpositiony[i] + 64, 32)) {
+            
+            if (o.xyoverchange[i] == 0)
+            {
+                o.xyoverchange[i] = 1;
+               }
             //ìñÇΩÇË
             if (o.overchange[i] == 0)
             {

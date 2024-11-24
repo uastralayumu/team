@@ -17,6 +17,7 @@ void object::init()
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < overnumber; i++)
 	{
+		xyoverchange[i] = 0;
 		overpositionx[i] = -128;
 		overpositiony[i] = 100;
 		overchange[i] = rand() % 2;
@@ -88,10 +89,20 @@ void object::update(int timer)
 
 	for (int i = 0; i < overcount; i++)
 	{
-		overpositionx[i] += 4;
-		if ((overpositionx[i] > SCREEN_W + 128 || overpositionx[i] > SCREEN_H + 256) && (overpositionx[overnumber - 1] > 64 && i == 0 || i != 0 && overpositionx[i - 1] > 64))
+		if (xyoverchange[i] == 0)
 		{
+			overpositionx[i] += 4;
+		}
+		else
+		{
+			overpositiony[i] -= 5;
+		}
+		
+		if ((overpositionx[i] > SCREEN_W + 96|| xyoverchange[i] == 1) && (overpositionx[overnumber - 1] > 96 && overpositionx[overnumber - 1] <= 192 && i == 0 || i != 0 && overpositionx[i - 1] > 96 && overpositionx[i - 1] <= 192))
+		{
+			xyoverchange[i] = 0;
 			overpositionx[i] = -128;
+			overpositiony[i] = 100;
 			overchange[i] = rand() % 2;
 		}
 	}

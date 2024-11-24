@@ -9,7 +9,6 @@ public:
 	void render_delete();
 	//explantion‚Ì‚½‚ß‚Ìinit
 	void explanationinit();
-
 	float overpositionx[9];
 	float overpositiony[9];
 	float centerpositionx[9];
@@ -19,6 +18,7 @@ public:
 	int overchange[9];
 	int centerchange[9];
 	int underchange[13];
+	int xyoverchange[9];
 private:
 	int odentimer1,odentimer2,odentimer3;
 	int overcount;
