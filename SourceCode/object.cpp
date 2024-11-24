@@ -95,7 +95,7 @@ void object::update(int timer)
 		}
 		else
 		{
-			overpositiony[i] -= 5;
+			overpositiony[i] -= 15;
 		}
 		
 		if ((overpositionx[i] > SCREEN_W + 96|| xyoverchange[i] == 1) && (overpositionx[overnumber - 1] > 96 && overpositionx[overnumber - 1] <= 192 && i == 0 || i != 0 && overpositionx[i - 1] > 96 && overpositionx[i - 1] <= 192))
