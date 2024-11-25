@@ -225,7 +225,7 @@ void object::render()
 		if (underchange[i] == 0)
 		{
 		sprite_render(
-			chikuwa,
+			octopus,
 			underpositionx[i], underpositiony[i],
 			1, 1,
 			0, 0,
@@ -237,7 +237,7 @@ void object::render()
 		else
 		{
 			sprite_render(
-				octopus,
+				chikuwa,
 				underpositionx[i], underpositiony[i],
 				1, 1,
 				0, 0,

@@ -9,6 +9,8 @@ public:
 	void init();
 	void update();
 	void render();
+	int score;
+	int judge;
 private:
 
 };

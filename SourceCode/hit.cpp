@@ -3,9 +3,13 @@
 #include"player.h"
 #include"object.h"
 #include"hit.h"
+#include"result.h"
+#include"mission.h"
 
 extern player p;
 extern object o;
+result r;
+extern mission m;
 
 bool hitCheck(int x1, int y1, float r1, int x2, int y2, float r2)
 {
@@ -44,6 +48,9 @@ void hit::Update()
             if (o.xyoverchange[i] == 0)
             {
                 o.xyoverchange[i] = 1;
+                r.score += 20;
+                r.judge++;
+                same[0] = o.overchange[i];
                }
             //“–‚½‚è
             if (o.overchange[i] == 0)
@@ -62,6 +69,9 @@ void hit::Update()
             if (o.xycenterchange[i] == 0)
             {
                 o.xycenterchange[i] = 1;
+                r.score += 20;
+                r.judge++;
+                same[1] = o.centerchange[i];
             }
             
         }
@@ -73,7 +83,18 @@ void hit::Update()
             if (o.xyunderchange[i] == 0)
             {
                 o.xyunderchange[i] = 1;
+                r.score += 20;
+                r.judge++;
+                same[2] = o.underchange[i];
             }
+        }
+    }
+    if (r.judge == 3)
+    {
+        r.score += 40;
+        if (m.obj1 == same[0] && m.obj2 == same[1] && m.obj3 == same[2])
+        {
+            r.score += 100;
         }
     }
 }

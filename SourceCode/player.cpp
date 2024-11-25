@@ -2,8 +2,11 @@
 #include "all.h"
 #include "mission.h"
 #include "hit.h"
+#include "result.h"
 Sprite* playercontroller;
 mission m;
+extern result r;
+
 
 void player::init()
 {
@@ -46,6 +49,7 @@ void player::update()
 			m.update();
 			playerpositiony = SCREEN_H - 400;
 			state--;
+			r.judge = 0;
 		}
 		break;
 	}

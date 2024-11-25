@@ -13,6 +13,8 @@ result::~result()
 
 void result::init()
 {
+	score = 0;
+	judge = 0;
 	result1= sprite_load(L"./Data/Images/result.png");
 }
 
