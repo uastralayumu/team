@@ -27,8 +27,8 @@ void hit::Update()
     for (int i = 0; i < 9; i++)
     {
         primitive::circle(
-            p.playerpositionx + 10, p.playerpositiony,             //位置
-            32,                     //半径
+            p.playerpositionx + 26, p.playerpositiony + 10,             //位置
+            8,                     //半径
             1, 1,                   //スケール
             ToRadian(0),            //角度
             1.0F, 0.0F, 0.0F, 0.2F); //色
@@ -39,7 +39,7 @@ void hit::Update()
             1, 1,                   //スケール
             ToRadian(0),            //角度
             0.0F, 0.0F, 1.0F, 0.5F); //色
-        if (hitCheck(p.playerpositionx + 10, p.playerpositiony, 32, o.overpositionx[i] + 64,  o.overpositiony[i] + 64, 32)) {
+        if (hitCheck(p.playerpositionx + 26, p.playerpositiony + 10, 32, o.overpositionx[i] + 64,  o.overpositiony[i] + 64, 32)) {
             
             if (o.xyoverchange[i] == 0)
             {
@@ -58,6 +58,22 @@ void hit::Update()
 
             }
         }
-
+        if (hitCheck(p.playerpositionx + 26, p.playerpositiony + 10, 32, o.centerpositionx[i] + 64, o.centerpositiony[i] + 64, 32)) {
+            if (o.xycenterchange[i] == 0)
+            {
+                o.xycenterchange[i] = 1;
+            }
+            
+        }
+       
+    }
+    for (int i = 0; i < 13; i++)
+    {
+        if (hitCheck(p.playerpositionx + 26, p.playerpositiony + 10, 32, o.underpositionx[i] + 64, o.underpositiony[i] + 64, 32)) {
+            if (o.xyunderchange[i] == 0)
+            {
+                o.xyunderchange[i] = 1;
+            }
+        }
     }
 }

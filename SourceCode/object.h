@@ -19,6 +19,8 @@ public:
 	int centerchange[9];
 	int underchange[13];
 	int xyoverchange[9];
+	int xycenterchange[9];
+	int xyunderchange[13];
 private:
 	int odentimer1,odentimer2,odentimer3;
 	int overcount;

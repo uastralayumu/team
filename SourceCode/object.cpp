@@ -24,12 +24,14 @@ void object::init()
 	}
 	for (int i = 0; i < centernumber; i++)
 	{
+		xycenterchange[i] = 0;
 		centerpositionx[i] = SCREEN_W;
 		centerpositiony[i] = 278;
 		centerchange[i] = rand() % 2;
 	}
 	for (int i = 0; i < undernumber; i++)
 	{
+		xyunderchange[i] = 0;
 		underpositionx[i] = -128;
 		underpositiony[i] = 460;
 		underchange[i] = rand() % 2;
@@ -93,12 +95,17 @@ void object::update(int timer)
 		{
 			overpositionx[i] += 4;
 		}
-		else
+		else if(xyoverchange[i] == 5)
 		{
 			overpositiony[i] -= 15;
 		}
+		else
+		{
+			xyoverchange[i]++;
+		}
 		
-		if ((overpositionx[i] > SCREEN_W + 96|| xyoverchange[i] == 1) && (overpositionx[overnumber - 1] > 96 && overpositionx[overnumber - 1] <= 192 && i == 0 || i != 0 && overpositionx[i - 1] > 96 && overpositionx[i - 1] <= 192))
+	if ((overpositionx[i] > SCREEN_W + 96|| xyoverchange[i] == 5) && (overpositionx[overnumber - 1] > 96 
+		&& overpositionx[overnumber - 1] <= 192 && i == 0 || i != 0 && overpositionx[i - 1] > 96 && overpositionx[i - 1] <= 192))
 		{
 			xyoverchange[i] = 0;
 			overpositionx[i] = -128;
@@ -108,19 +115,49 @@ void object::update(int timer)
 	}
 	for (int i = 0; i < undercount; i++)
 	{
-		underpositionx[i] += 3;
-		if (underpositionx[i] > SCREEN_W + 128  && (underpositionx[undernumber - 1] > 32 && i + undernumber == undernumber || i != 0 && underpositionx[i - 1] > 32))
+		if (xyunderchange[i] == 0)
 		{
+			underpositionx[i] += 3;
+		}
+		else if (xyunderchange[i] == 17)
+		{
+			underpositiony[i] -= 15;
+		}
+		else
+		{
+			xyunderchange[i]++;
+		}
+		
+		if ((underpositionx[i] > SCREEN_W + 192 || xyunderchange[i] == 17) && (underpositionx[undernumber - 1] > 32
+			&& underpositionx[undernumber - 1] <= 128 && i == 0 || i != 0 && underpositionx[i - 1] <= 128 && underpositionx[i - 1] > 32))
+		{
+			xyunderchange[i] = 0;
 			underpositionx[i] = -128;
+			underpositiony[i] = 460;
 			underchange[i] = rand() % 2;
 		}
 	}
 	for (int i = 0; i < centercount; i++)
 	{
-		centerpositionx[i] -= 4;
-		if (centerpositionx[i] < -128 && (centerpositionx[centernumber - 1] < SCREEN_W - 192 && i + centernumber == centernumber || i != 0 && centerpositionx[i - 1] < SCREEN_W - 192))
+		if (xycenterchange[i] == 0)
 		{
+			centerpositionx[i] -= 4;
+		}
+		else if (xycenterchange[i] == 11)
+		{
+			centerpositiony[i] -= 15;
+		}
+		else
+		{
+			xycenterchange[i]++;
+		}
+		if ((centerpositionx[i] < - 224 || xycenterchange[i] == 11) && (centerpositionx[centernumber - 1] < SCREEN_W - 224 
+			&& centerpositionx[centernumber - 1] >= SCREEN_W - 320 && i  == 0 || i != 0 
+			&& centerpositionx[i - 1] < SCREEN_W - 224 && centerpositionx[i - 1] >= SCREEN_W - 320))
+		{
+			xycenterchange[i] = 0;
 			centerpositionx[i] = SCREEN_W;
+			centerpositiony[i] = 278;
 			centerchange[i] = rand() % 2;
 		}
 	}
