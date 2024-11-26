@@ -8,7 +8,7 @@
 
 extern player p;
 extern object o;
-result r;
+extern result r;
 extern mission m;
 
 bool hitCheck(int x1, int y1, float r1, int x2, int y2, float r2)
