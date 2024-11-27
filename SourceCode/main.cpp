@@ -66,6 +66,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
             r.render();
             if (TRG(0) & PAD_START)
             {
+                music::play(3);
                 state = 0;
             }
             break;
