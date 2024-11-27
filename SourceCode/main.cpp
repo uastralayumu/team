@@ -24,10 +24,11 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// Žg—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
     // ƒQ[ƒ€ƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰ŠúÝ’è
     GameLib::init(L"ƒQ[ƒ€ƒvƒƒOƒ‰ƒ~ƒ“ƒO‡T", SCREEN_W, SCREEN_H, FULLSCREEN);
     int state = 0;
+    int timer;
     title t;
     result r;
     using namespace input;
-
+    GameLib::setBlendMode(Blender::BS_ALPHA);
 
     while (GameLib::gameLoop())
     {
@@ -41,19 +42,20 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// Žg—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
             r.init();
             audio_init();
             music::play(4);
+            timer = 0;
             state++;
             break;
            
         
         case 1:
             t.render();
+            GameLib::text_out(5, "ENTER START", 1280, 600, 2, 2, 0, 0, 0, 1, TEXT_ALIGN::UPPER_RIGHT);
             if (TRG(0) & PAD_START)
             {
                 music::play(2);
                 music::stop(4);
                 music::play(5);
                 state++;
-   
             }
             break;
         case 2:
@@ -64,10 +66,15 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// Žg—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
             //ƒXƒRƒAƒV[ƒ“‚ðXVE•`‰æ
             music::stop(5);
             r.render();
-            if (TRG(0) & PAD_START)
+            timer++;
+            if (timer > 61)
             {
-                music::play(3);
-                state = 0;
+                GameLib::text_out(5, "ENTER START", 1280, 1000, 2, 2, 0, 0, 0, 1, TEXT_ALIGN::UPPER_RIGHT);
+                if (TRG(0) & PAD_START)
+                {
+                    music::play(3);
+                    state = 0;
+                }
             }
             break;
         }

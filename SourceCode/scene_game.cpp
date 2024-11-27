@@ -20,6 +20,7 @@
 int game_state = 0;    // 状態
 int game_timer = 0;    // タイマー
 int time_limit = 0;    //制限時間
+int explanation_timer = 0;
 hit h;
 player p;
 object o;
@@ -33,6 +34,7 @@ void game_init()
     game_state = 0;
     game_timer = 0;
     time_limit = 0;
+    explanation_timer = 0;
 }
 
 //--------------------------------------
@@ -41,7 +43,7 @@ void game_init()
 void game_update(int *state)
 {
     using namespace input;
-    
+ 
     
     switch (game_state)
     {
@@ -57,11 +59,16 @@ void game_update(int *state)
     case 2:
         e.update();
         e.render();
-        if (TRG(0) & PAD_START)
+        explanation_timer++;
+        if (explanation_timer > 60)
         {
-            game_state++;
-            p.init();
-            o.init();
+            GameLib::text_out(5, "ENTER START", 1280, 1000, 2, 2, 0, 0, 0, 1, TEXT_ALIGN::UPPER_RIGHT);
+            if (TRG(0) & PAD_START)
+            {
+                game_state++;
+                p.init();
+                o.init();
+            }
         }
         break;
     case 3:
@@ -74,7 +81,7 @@ void game_update(int *state)
         h.Update();
         time_limit = game_timer / 60;
         //制限時間
-        if (time_limit >= 60)
+        if (time_limit >= 1)
         {
             p.render_delete();
             *state = 3;
