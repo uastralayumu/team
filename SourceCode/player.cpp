@@ -3,6 +3,7 @@
 #include "mission.h"
 #include "hit.h"
 #include "result.h"
+#include "audio.h"
 Sprite* playercontroller;
 mission m;
 extern result r;
@@ -38,6 +39,7 @@ void player::update()
 		}
 		if (TRG(0) & PAD_START)
 		{
+			music::play(0);
 			state++;
 		}
 		break;
