@@ -40,16 +40,18 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
             t.init();
             r.init();
             audio_init();
+            music::play(4);
             state++;
             break;
            
         
         case 1:
-        
             t.render();
             if (TRG(0) & PAD_START)
             {
                 music::play(2);
+                music::stop(4);
+                music::play(5);
                 state++;
    
             }
@@ -60,7 +62,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
             break;
         case 3:
             //ƒXƒRƒAƒV[ƒ“‚ğXVE•`‰æ
-
+            music::stop(5);
             r.render();
             if (TRG(0) & PAD_START)
             {
