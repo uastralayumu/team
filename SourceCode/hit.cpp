@@ -30,19 +30,19 @@ void hit::Update()
     //障害物(上段)
     for (int i = 0; i < 9; i++)
     {
-        primitive::circle(
-            p.playerpositionx + 26, p.playerpositiony + 10,             //位置
-            8,                     //半径
-            1, 1,                   //スケール
-            ToRadian(0),            //角度
-            1.0F, 0.0F, 0.0F, 0.2F); //色
-        primitive::circle(
-            o.overpositionx[i] + 64, o.overpositiony[i] + 64,             //位置
-            32,                     //半径
+        //primitive::circle(
+        //    p.playerpositionx + 26, p.playerpositiony + 10,             //位置
+        //    8,                     //半径
+        //    1, 1,                   //スケール
+        //    ToRadian(0),            //角度
+        //    1.0F, 0.0F, 0.0F, 0.2F); //色
+        //primitive::circle(
+        //    o.overpositionx[i] + 64, o.overpositiony[i] + 64,             //位置
+        //    32,                     //半径
 
-            1, 1,                   //スケール
-            ToRadian(0),            //角度
-            0.0F, 0.0F, 1.0F, 0.5F); //色
+        //    1, 1,                   //スケール
+        //    ToRadian(0),            //角度
+        //    0.0F, 0.0F, 1.0F, 0.5F); //色
         if (hitCheck(p.playerpositionx + 26, p.playerpositiony + 10, 32, o.overpositionx[i] + 64,  o.overpositiony[i] + 64, 32)) {
             
             if (o.xyoverchange[i] == 0)
