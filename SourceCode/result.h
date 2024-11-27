@@ -11,6 +11,8 @@ public:
 	void render();
 	int score;
 	int judge;
+	int threeoden;
+	int osinagaki;
 private:
 
 };

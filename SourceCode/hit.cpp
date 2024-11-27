@@ -31,19 +31,6 @@ void hit::Update()
     //障害物(上段)
     for (int i = 0; i < 9; i++)
     {
-        //primitive::circle(
-        //    p.playerpositionx + 26, p.playerpositiony + 10,             //位置
-        //    8,                     //半径
-        //    1, 1,                   //スケール
-        //    ToRadian(0),            //角度
-        //    1.0F, 0.0F, 0.0F, 0.2F); //色
-        //primitive::circle(
-        //    o.overpositionx[i] + 64, o.overpositiony[i] + 64,             //位置
-        //    32,                     //半径
-
-        //    1, 1,                   //スケール
-        //    ToRadian(0),            //角度
-        //    0.0F, 0.0F, 1.0F, 0.5F); //色
         if (hitCheck(p.playerpositionx + 26, p.playerpositiony + 10, 32, o.overpositionx[i] + 64,  o.overpositiony[i] + 64, 32)) {
             
             if (o.xyoverchange[i] == 0)
@@ -54,18 +41,7 @@ void hit::Update()
                 r.judge++;
                 same[0] = o.overchange[i];
                }
-            //当たり
-            if (o.overchange[i] == 0)
-            {
-
-                /*p.hitObj[0] = o.overchange[i];*/
-
-
-            }
-            else
-            {
-
-            }
+           
         }
         if (hitCheck(p.playerpositionx + 26, p.playerpositiony + 10, 32, o.centerpositionx[i] + 64, o.centerpositiony[i] + 64, 32)) {
             if (o.xycenterchange[i] == 0)
@@ -95,9 +71,11 @@ void hit::Update()
     }
     if (r.judge == 3)
     {
+        r.threeoden++;
         r.score += 40;
         if (m.obj1 == same[0] && m.obj2 == same[1] && m.obj3 == same[2])
         {
+            r.osinagaki++;
             r.score += 100;
         }
         r.judge = 0;
