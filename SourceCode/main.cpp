@@ -10,7 +10,7 @@
 #include "all.h"
 #include "title.h"
 #include "result.h"
-
+#include "audio.h"
 //------< namespace >-----------------------------------------------------------
 using namespace GameLib;
 
@@ -39,6 +39,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
             game_init();
             t.init();
             r.init();
+            audio_init();
             state++;
             break;
            
@@ -48,6 +49,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
             t.render();
             if (TRG(0) & PAD_START)
             {
+                music::play(2);
                 state++;
    
             }
