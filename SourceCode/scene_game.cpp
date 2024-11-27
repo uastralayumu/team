@@ -81,7 +81,7 @@ void game_update(int *state)
         h.Update();
         time_limit = game_timer / 60;
         //§ŒÀŠÔ
-        if (time_limit >= 1)
+        if (time_limit >= 60)
         {
             p.render_delete();
             *state = 3;
