@@ -11,6 +11,7 @@ Sprite* osinagakiexplanation;
 Sprite* timerexplanation;
 Sprite* coment1;
 Sprite* coment2;
+Sprite* coment3;
 
 void explanation::init()
 {
@@ -22,6 +23,7 @@ void explanation::init()
 	timerexplanation = sprite_load(L"./Data/Images/timerexplanation.png");
 	coment1 = sprite_load(L"./Data/Images/coment1.png");
 	coment2 = sprite_load(L"./Data/Images/coment2.png");
+	coment3 = sprite_load(L"./Data/Images/coment3.png");
 
 }
 
@@ -52,5 +54,9 @@ void explanation::render()
 	sprite_render(
 		coment2,
 		960, 650
+	);
+	sprite_render(
+		coment3,
+		1600, 0
 	);
 }

@@ -83,7 +83,6 @@ void game_update(int *state)
         //§ŒÀŽžŠÔ
         if (time_limit >= 60)
         {
-            p.render_delete();
             *state = 3;
             game_state = 0;
             GameLib::clear(0, 0, 0);

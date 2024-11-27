@@ -1,26 +1,20 @@
 #include "mission.h"
+#include "object.h"
+#include"player.h"
 #include "all.h"
-Sprite* tamago2;
-Sprite* chikuwa2;
-Sprite* octopus2;
-Sprite* konjac2;
-Sprite* daikon2;
-Sprite* hanpen2;
-Sprite* kusi2;
+extern Sprite* tamago;
+extern Sprite* chikuwa;
+extern Sprite* octopus;
+extern Sprite* konjac;
+extern Sprite* daikon;
+extern Sprite* hanpen;
+extern Sprite* playercontroller;
 void mission::init()
 {
 	srand((unsigned int)time(NULL));
 	obj1 = rand() % 2;
 	obj2 = rand() % 2;
 	obj3 = rand() % 2;
-
-	tamago2 = sprite_load(L"./Data/Images/tamago.png");
-	octopus2 = sprite_load(L"./Data/Images/octopus.png");
-	chikuwa2 = sprite_load(L"./Data/Images/chikuwa.png");
-	konjac2 = sprite_load(L"./Data/Images/konjac.png");
-	daikon2 = sprite_load(L"./Data/Images/daikon.png");
-	hanpen2 = sprite_load(L"./Data/Images/hanpen.png");
-	kusi2 = sprite_load(L"./Data/Images/kusi.png");
 }
 
 void mission::update()
@@ -32,11 +26,11 @@ void mission::update()
 
 void mission::render()
 {
-	sprite_render(kusi2, 70, 800, 2, 2, 56, 20, 64, 128);
+	sprite_render(playercontroller, 70, 800, 2, 2, 56, 20, 64, 128);
 	if (obj1 == 0)
 	{
 		sprite_render(
-			hanpen2,
+			hanpen,
 			90, 800,
 			0.7, 0.7,
 			0, 0,
@@ -48,7 +42,7 @@ void mission::render()
 	else
 	{
 		sprite_render(
-			konjac2,
+			konjac,
 			90, 800,
 			0.7, 0.7,
 			0, 0,
@@ -60,7 +54,7 @@ void mission::render()
 	if (obj2 == 0)
 	{
 		sprite_render(
-			tamago2,
+			tamago,
 			90, 870,
 			0.8, 0.8,
 			0, 0,
@@ -72,7 +66,7 @@ void mission::render()
 	else
 	{
 		sprite_render(
-			daikon2,
+			daikon,
 			90, 870,
 			0.7, 0.7,
 			0, 0,
@@ -84,7 +78,7 @@ void mission::render()
 	if (obj3 == 0)
 	{
 		sprite_render(
-			octopus2,
+			octopus,
 			90, 920,
 			0.7, 0.7,
 			0, 0,
@@ -96,7 +90,7 @@ void mission::render()
 	else
 	{
 		sprite_render(
-			chikuwa2,
+			chikuwa,
 			90, 920,
 			0.8, 0.8,
 			0, 0,

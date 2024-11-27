@@ -74,6 +74,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// g—p‚µ‚È‚¢•Ï”‚Í‹Lq‚
                 {
                     music::play(3);
                     state = 0;
+
                 }
             }
             break;
