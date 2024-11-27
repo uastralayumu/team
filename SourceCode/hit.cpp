@@ -96,5 +96,6 @@ void hit::Update()
         {
             r.score += 100;
         }
+        r.judge = 0;
     }
 }

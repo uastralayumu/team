@@ -2,6 +2,7 @@
 #include "result.h"
 result r;
 Sprite* result_render;
+Sprite* font5;
 result::result()
 {
 
@@ -17,6 +18,7 @@ void result::init()
 	score = 0;
 	judge = 0;
 	result_render= sprite_load(L"./Data/Images/result.png");
+	font5 = sprite_load(L"./Data/Fonts/font5.png");
 }
 
 void result::update()
@@ -26,6 +28,11 @@ void result::update()
 
 void result::render()
 {
+	int place = 1,i = 1;
 	sprite_render(result_render, 0, 0);
-	GameLib::text_out(5, std::to_string(r.score),700,480,3,3,0,0,0,1,TEXT_ALIGN::UPPER_RIGHT);
+	do {
+		sprite_render(font5, 900 - i * 64, 440 + (i * 10), 2.2, 2.2, 32 * ((r.score / place) % 10), 96, 32, 32, 0, 0, ToRadian(-9), 0, 0, 0, 1);
+		place *= 10;
+		i++;
+	} while (place < r.score);
 }
