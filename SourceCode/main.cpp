@@ -49,12 +49,12 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// égópÇµÇ»Ç¢ïœêîÇÕãLèqÇ
         
         case 1:
             t.render();
-            GameLib::text_out(5, "ENTER START", 1280, 600, 2, 2, 0, 0, 0, 1, TEXT_ALIGN::UPPER_RIGHT);
             if (TRG(0) & PAD_START)
             {
                 music::play(2);
                 music::stop(4);
                 music::play(5);
+                t.render_delete();
                 state++;
             }
             break;

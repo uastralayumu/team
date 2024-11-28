@@ -44,19 +44,13 @@ void game_update(int *state)
 {
     using namespace input;
  
-    
     switch (game_state)
     {
     case 0:
         //////// 初期設定 ////////
         e.init();
         game_state++;
-
     case 1:
-        //////// パラメータの設定 ////////
-        GameLib::setBlendMode(Blender::BS_ALPHA);
-        game_state++;
-    case 2:
         e.update();
         e.render();
         explanation_timer++;
@@ -71,7 +65,7 @@ void game_update(int *state)
             }
         }
         break;
-    case 3:
+    case 2:
         //////// 通常時 ////////
         s.render();
         p.update();
@@ -80,30 +74,15 @@ void game_update(int *state)
         o.render();
         h.Update();
         time_limit = game_timer / 60;
+        game_timer++;
         //制限時間
         if (time_limit >= 60)
         {
             *state = 3;
             game_state = 0;
-            GameLib::clear(0, 0, 0);
+            s.render_delete();
         }
-       
         break;
-       
     }
-    if (game_state > 2)
-    {
-        game_timer++;
-    }
-    
-    
-   
 }
 
-//--------------------------------------
-//  終了処理
-//--------------------------------------
-void game_deinit()
-{
-  
-}

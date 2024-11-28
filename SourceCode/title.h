@@ -3,12 +3,10 @@
 class title
 {
 public:
-	title();
-	~title();
 
 	void init();
-	void update();
 	void render();
+	void render_delete();
 private:
 	
 };

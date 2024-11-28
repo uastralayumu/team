@@ -18,7 +18,5 @@
 //------< プロトタイプ宣言 >-----------------------------------------------------
 void game_init();
 void game_update(int *state);
-void game_render();
-void game_deinit();
 
 #endif//SCENE_GAME_H
