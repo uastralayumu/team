@@ -66,6 +66,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// égópÇµÇ»Ç¢ïœêîÇÕãLèqÇ
             //ÉXÉRÉAÉVÅ[ÉìÇçXêVÅEï`âÊ
             music::stop(5);
             r.render();
+          
             timer++;
             if (timer > 61)
             {
@@ -73,6 +74,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// égópÇµÇ»Ç¢ïœêîÇÕãLèqÇ
                 if (TRG(0) & PAD_START)
                 {
                     music::play(3);
+                    music::stop(6);
                     state = 0;
 
                 }

@@ -1,6 +1,5 @@
 #include "title.h"
 #include "all.h"
-
 Sprite* title1;
 
 void title::init()

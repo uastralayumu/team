@@ -14,6 +14,7 @@
 #include "stage.h"
 #include "explanation.h"
 #include"hit.h"
+#include "audio.h"
 //------< ’è” >----------------------------------------------------------------
 
 //------< •Ï” >----------------------------------------------------------------
@@ -78,6 +79,7 @@ void game_update(int *state)
         //§ŒÀŽžŠÔ
         if (time_limit >= 60)
         {
+            music::play(6);
             *state = 3;
             game_state = 0;
             s.render_delete();
