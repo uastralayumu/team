@@ -1,8 +1,10 @@
 #include "all.h"
 #include "result.h"
-#include "mission.h"
+#include "object.h"
 #include "player.h"
 result r;
+extern player p;
+extern object o;
 extern Sprite* playercontroller;
 extern Sprite* konjac;
 extern Sprite* daikon;
@@ -10,15 +12,6 @@ extern Sprite* chikuwa;
 Sprite* result_render;
 Sprite* font5;
 Sprite* total;
-result::result()
-{
-
-}
-
-result::~result()
-{
-
-}
 
 void result::init()
 {
@@ -29,11 +22,6 @@ void result::init()
 	result_render= sprite_load(L"./Data/Images/result.png");
 	font5 = sprite_load(L"./Data/Fonts/font5.png");
 	total = sprite_load(L"./Data/Images/total.png");
-}
-
-void result::update()
-{
-
 }
 
 void result::render()
@@ -70,4 +58,13 @@ void result::render()
 		place *= 10;
 		i++;
 	} while (place <= r.osinagaki);
+}
+
+void result::render_delete()
+{
+	safe_delete(result_render);
+	safe_delete(font5);
+	safe_delete(total);
+	o.render_delete();
+	p.render_delete();
 }

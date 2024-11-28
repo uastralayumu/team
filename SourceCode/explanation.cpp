@@ -27,12 +27,6 @@ void explanation::init()
 
 }
 
-void explanation::update()
-{
-	
-	
-}
-
 void explanation::render()
 {
 	
@@ -59,4 +53,13 @@ void explanation::render()
 		coment3,
 		1600, 0
 	);
+}
+
+void explanation::render_delete()
+{
+	safe_delete(osinagakiexplanation);
+	safe_delete(timerexplanation);
+	safe_delete(coment1);
+	safe_delete(coment2);
+	safe_delete(coment3);
 }

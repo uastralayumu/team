@@ -280,5 +280,10 @@ void object::render()
 
 void object::render_delete()
 {
-	delete chikuwa, daikon, tamago, konjac, hanpen, octopus;
+	safe_delete(chikuwa);
+	safe_delete(daikon);
+	safe_delete(konjac);
+	safe_delete(octopus);
+	safe_delete(tamago);
+	safe_delete(hanpen);
 }

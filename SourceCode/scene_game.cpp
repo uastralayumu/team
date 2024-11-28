@@ -51,7 +51,6 @@ void game_update(int *state)
         e.init();
         game_state++;
     case 1:
-        e.update();
         e.render();
         explanation_timer++;
         if (explanation_timer > 60)
@@ -62,6 +61,7 @@ void game_update(int *state)
                 game_state++;
                 p.init();
                 o.init();
+                e.render_delete();
             }
         }
         break;

@@ -3,12 +3,10 @@
 class result
 {
 public:
-	result();
-	~result();
 
 	void init();
-	void update();
 	void render();
+	void render_delete();
 	int score;
 	int judge;
 	int threeoden;
