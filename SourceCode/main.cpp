@@ -22,7 +22,7 @@ using namespace GameLib;
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)// 使用しない変数は記述しない
 {
     // ゲームライブラリの初期設定
-    GameLib::init(L"ゲームプログラミングⅠ", SCREEN_W, SCREEN_H, FULLSCREEN);
+    GameLib::init(L"おでん伝", SCREEN_W, SCREEN_H, FULLSCREEN);
     int state = 0;
     int timer;
     title t;
